@@ -1,6 +1,6 @@
-numV = int(input("Please enter V --> "))
-numT = int(input("Please enter T --> "))
-if numV > 0:
-    print("Vasya stopped at", numV * numT, "point")
+num_v = int(input("Please enter V --> "))
+num_t = int(input("Please enter T --> "))
+if num_v > 0:
+    print("Vasya stopped at", num_v * num_t, "point")
 else:
-    print("Vasya stopped at", numV * numT, "point")
+    print("Vasya stopped at", num_v * num_t, "point")

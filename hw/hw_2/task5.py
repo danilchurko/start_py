@@ -1,7 +1,7 @@
-numX = int(input("Please enter X --> "))
-if numX > 0:
+num_x = int(input("Please enter first_num --> "))
+if num_x > 0:
     print("singX = 1")
-elif numX < 0:
+elif num_x < 0:
     print("singX = -1")
 else:
     print("singX = 0")
