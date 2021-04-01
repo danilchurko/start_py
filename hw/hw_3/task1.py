@@ -1,4 +1,4 @@
-number = input("Type some number:")
+number = input("Type some number: ")
 suma = 0
 
 for i in number:
