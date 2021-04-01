@@ -1,4 +1,4 @@
-some_numb = int(input("Type some number and I count it as a factorial:"))
+some_numb = int(input("Type some number:"))
 
 factorial = 1
 
