@@ -1,8 +1,9 @@
 import random
 
-for i in range(0, 3, 1):
+for i in range(3):
     human_number = input("Type some number:")
     comp_num = random.randint(0, 11)
+
     if human_number == comp_num:
         print("You WON!!!!")
         break
