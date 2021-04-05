@@ -8,6 +8,7 @@ while True:
 
     if n == 0:
         break
+
     elif n != 0:
         count += 1
         sum_num += n
@@ -18,12 +19,13 @@ while True:
             second_max_num = max_num
             max_num = n
             max_num_indx = count
+
         if second_max_num < n < max_num:
             second_max_num = n
 
         if n % 2 == 0:
             coun_chet += 1
-        if n % 2 != 0:
+        else:
             count_nechet += 1
 
 
