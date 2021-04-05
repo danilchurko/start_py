@@ -1,4 +1,4 @@
-str_smth = "Here we have a text whitch we need to"
+str_smth = "Here we have a text which we need to"
 
 print("#1", str_smth[2])
 print("#2", str_smth[-2])
