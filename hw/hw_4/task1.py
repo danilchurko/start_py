@@ -5,4 +5,5 @@ day = 1
 while x_km < y_km:
     x_km *= 1.1
     day += 1
+
 print("Days he need:", day)

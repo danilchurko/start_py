@@ -1,15 +1,5 @@
-count = 0
-sum_num = 0
+count, sum_num, avg, max_num, second_max_num, max_num_indx, coun_chet, count_nechet, coun_max = 0, 0, 0, 0, 0, 0, 0, 0, 0
 comp = 1
-avg = 0
-
-max_num = 0
-second_max_num = 0
-max_num_indx = 0
-
-coun_chet = 0
-count_nechet = 0
-coun_max = 0
 
 while True:
     n = int(input())
@@ -23,12 +13,6 @@ while True:
         sum_num += n
         comp *= n
         avg = sum_num / count
-
-        # if a >= el1:
-        #     el2 = el1
-        #     el1 = a
-        # if el2 < a and a < el1:
-        #     el2 = a
 
         if n >= max_num:
             second_max_num = max_num
