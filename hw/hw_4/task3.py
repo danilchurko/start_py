@@ -1,17 +1,17 @@
-def count(first_num, second_num):
+def count(first_arg, second_arg):
 
-    if first_num < second_num:
-        print(first_num)
-        count(first_num + 1, second_num)
+    if first_arg < second_arg:
+        print(first_arg)
+        count(first_arg + 1, second_arg)
 
-    elif first_num > second_num:
-        print(first_num)
-        count(first_num - 1, second_num)
+    elif first_arg > second_arg:
+        print(first_arg)
+        count(first_arg - 1, second_arg)
 
     else:
-        print(first_num)
+        print(first_arg)
 
 
-first_num = int(input())
-second_num = int(input())
-count(first_num, second_num)
+first_arg = int(input())
+second_arg = int(input())
+count(first_arg, second_arg)

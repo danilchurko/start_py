@@ -29,11 +29,11 @@ while True:
             count_nechet += 1
 
 
-print("Count: %d" % count)
-print("Sum all numbs: %d" % sum_num)
-print("Composition: %d" % comp)
-print("AVG: %d" % round(avg, 2))
-print("MAX numbr + indx = [", max_num_indx, "]", max_num, sep='')
-print("Second MAX: %d" % second_max_num)
-print("Even -", coun_chet, "NotEven -", count_nechet)
-print("Meat MAX times: %d" % coun_max)
+print('Count: {}'.format(count))
+print('Sum all numbs: {}'.format(sum_num))
+print('Composition: {}'.format(comp))
+print('AVG: {:.2f}'.format(avg))
+print('MAX numbr + indx = [{}] {}'.format(max_num_indx, max_num))
+print('Second MAX: {}'.format(second_max_num))
+print('Even - {} | NotEven - {}'.format(coun_chet, count_nechet))
+print('Meat MAX times: {}'.format(coun_max))
