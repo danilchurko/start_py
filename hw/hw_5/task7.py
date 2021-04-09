@@ -2,11 +2,12 @@ from datetime import date
 
 
 def is_date(day, month, year):
-    if date(year, month, day):
+    try:
+        date(year, month, day)
         return True
-    else:
+    except:
         return False
 
 
-print(is_date(14, 4, 2021))
-print(is_date(29, 2, 2018))
+print(is_date(41, 4, 2021))
+print(is_date(11, 2, 2018))
