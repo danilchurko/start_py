@@ -23,10 +23,11 @@ def open_file():
             duration_temp = dict_json['album']['tracks']['track'][i]['duration']
             duration.append(int(duration_temp))
 
-        json.dumps(dict_json)
+        # in sec
         sum_sec = listsum(duration)
         print(f'Total duration: {sum_sec} sec.')
 
+        # *timedelta
         sum_time = datetime.timedelta(0, sum_sec, 0)
         print(f'Total duration: {sum_time} min.')
 
