@@ -15,11 +15,13 @@ def open_file():
     with open('acdc.json', 'r') as file:
         dict_json = json.load(file)
 
-        with open('acdc.json') as file_temp:
-            total = sum(1 for line in file_temp.readlines() if 'duration' in line)
-            # print(total)
+        # with open('acdc.json') as file_temp:
+        #     total = sum(1 for line in file_temp.readlines() if 'duration' in line)
+        #     # print(total)
 
-        for i in range(total):
+        # если один цикл, то как вычислить сколько раз нужно его выполнять?
+        # чтобы range() сам выставлялся в зависимости от кол-ва треков
+        for i in range(10):
             duration_temp = dict_json['album']['tracks']['track'][i]['duration']
             duration.append(int(duration_temp))
 
