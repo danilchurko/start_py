@@ -7,7 +7,6 @@ def countdown(func):
         for i in range(3, 0, -1):
             print(f'{i}')
             time.sleep(1)
-        # почему без этой func() все ломается?
         func()
     return timer
 
@@ -17,9 +16,6 @@ def what_time_is_it_now():
     now_time = datetime.now()
     date_str = datetime.strftime(now_time, '%H:%M:%S')
     print(date_str)
-
-    # почему возвращает None?
-    # return date_str
 
 
 what_time_is_it_now()
