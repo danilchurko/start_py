@@ -1,15 +1,15 @@
 def spliter(func):
     def sp(sentense):
-        print(sorted(sentense.split(' ')))
-        func(sentense)
+        sent = sorted(sentense.split(' '))
+        func(sent)
     return sp
 
 
 @spliter
 def string_back(string_temp):
-    return string_temp
+    return print(string_temp)
 
 
 str_user = input('Type your string --> ')
-print('dict:', str(string_back(str_user)))
+string_back(str_user)
 
