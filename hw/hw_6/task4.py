@@ -1,6 +1,8 @@
 import json
 import datetime
 
+from benchmark import benchmark
+
 duration = []
 
 
@@ -11,6 +13,7 @@ def listsum(num_list):
         return num_list[0] + listsum(num_list[1:])
 
 
+@benchmark
 def open_file():
     with open('acdc.json', 'r') as file:
         dict_json = json.load(file)
