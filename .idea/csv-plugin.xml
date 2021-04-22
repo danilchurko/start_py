@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CsvFileAttributes">
+    <option name="attributeMap">
+      <map>
+        <entry key="/hw/hw_9/BRAND-Lexus-YEAR-2020-FUEL-БЕНЗИН-COLOR-БІЛИЙ.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/hw/hw_9/BRAND-None-YEAR-None-FUEL-None-COLOR-None.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/hw/hw_9/BRAND-Opel-YEAR-2000-FUEL-БЕНЗИН-COLOR-БІЛИЙ.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/hw/hw_9/BRAND-Toyota-YEAR-2012-FUEL-БЕНЗИН-COLOR-БІЛИЙ.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/hw/hw_9/BRAND-Toyota-YEAR-2020-FUEL-БЕНЗИН-COLOR-БІЛИЙ.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
