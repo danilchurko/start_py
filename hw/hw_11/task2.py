@@ -1,7 +1,7 @@
 def hide_email(email):
     dog = email.index('@')
-    new_emai = email[:dog - 3] + '***@**' + email[dog + 3:]
-    return new_emai
+    new_email = email[:dog - 3] + '***@**' + email[dog + 3:]
+    return new_email
 
 
 email = 'danil.churko@gmail.com'
