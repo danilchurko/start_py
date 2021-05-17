@@ -26,7 +26,13 @@ class BankAcc(object):
             print('Enougth funds :(')
 
     def show_balance(self):
-        return print(round(self.balance, 5))
+        balanse = 0
+        for transactions in self.transactions:
+            if 'DEP' in transactions:
+                balanse += transactions[0] - (transactions[0] * 0.01)
+            elif 'WIT' in transactions:
+                balanse -= transactions[0] + (transactions[0] * 0.01)
+        return print(balanse)
 
 
 user = 'Danil C.H.'
@@ -38,9 +44,6 @@ acc.deposit(5000)
 acc.show_balance()
 
 acc.withdrawal(250)
-acc.show_balance()
-
-acc.withdrawal(4750)
 acc.show_balance()
 
 print(acc.transactions)
