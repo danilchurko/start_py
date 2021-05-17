@@ -3,15 +3,6 @@ import csv
 import sys
 
 
-def check_args_4name():
-    for key in list(args_dict):
-        value = args_dict[key]
-        if value is None or key == 'o' or key == 'reg_num':
-            del args_dict[key]
-
-    return args_dict
-
-
 def check_args(row):
     dict_args = {k: v for k, v in args_dict.items() if v is not None}
     if not dict_args:
@@ -95,6 +86,10 @@ if __name__ == '__main__':
 
     args_dict = vars(args)
 
-    args_for_name = check_args_4name()
+    for key in list(args_dict):
+        value = args_dict[key]
+        if value is None or key == 'o' or key == 'reg_num':
+            del args_dict[key]
+    args_for_name = args_dict
 
     open_csv()
