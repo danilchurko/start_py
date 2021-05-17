@@ -3,38 +3,44 @@ import datetime
 
 
 class BankAcc(object):
-    name_acc = str()
-    id_acc = str(uuid.uuid4())
-    balance = float()
-    transactions = []
-
     def __init__(self, name='No Name', uid=uuid.uuid4()):
         self.name_acc = name
         self.id_acc = uid
         self.balance = 0.00
-        self.trans = []
+        self.transactions = []
+
+    def set_name(self, user):
+        self.name_acc = user
 
     def deposit(self, val):
         self.balance += val - (val * 0.01)
-        self.transactions.append([val, 'COMMISSION - {}'.format(val * 0.01), 'DEPOSIT', datetime.datetime.now() \
+        self.transactions.append([val, 'COMMISSION - {}'.format(val * 0.01), 'DEP', datetime.datetime.now() \
                                  .strftime("%d.%m.%Y %HH:%MM:%SS")])
 
     def withdrawal(self, val):
-        self.balance -= - val - (val * 0.01)
-        self.transactions.append([val, 'COMMISSION - {}'.format(val * 0.01), 'WITHDRAWAL', datetime.datetime.now() \
-                                 .strftime("%d.%m.%Y %HH:%MM:%SS")])
+        if self.balance > 0 and self.balance - val >= 0:
+            self.balance -= val - (val * 0.01)
+            self.transactions.append([val, 'COMMISSION - {}'.format(val * 0.01), 'WIT', datetime.datetime.now() \
+                                     .strftime("%d.%m.%Y %HH:%MM:%SS")])
+        else:
+            print('Enougth funds :(')
 
     def show_balance(self):
         return print(round(self.balance, 5))
 
 
+user = 'Danil C.H.'
 acc = BankAcc()
+acc.set_name(user)
 print(acc.name_acc, acc.id_acc)
 
 acc.deposit(5000)
 acc.show_balance()
 
 acc.withdrawal(250)
+acc.show_balance()
+
+acc.withdrawal(4750)
 acc.show_balance()
 
 print(acc.transactions)
