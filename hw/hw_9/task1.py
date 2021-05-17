@@ -1,49 +1,78 @@
 import argparse
 import csv
+import sys
 
 
-def read_csv():
-    results = []
+def check_args_4name():
+    for key in list(args_dict):
+        value = args_dict[key]
+        if value is None or key == 'o' or key == 'reg_num':
+            del args_dict[key]
+
+    return args_dict
+
+
+def check_args(row):
+    dict_args = {k: v for k, v in args_dict.items() if v is not None}
+    if not dict_args:
+        sys.exit(0)
+
+    map_dict = {
+        'brand': 'BRAND',
+        'color': 'COLOR',
+        'year': 'MAKE_YEAR',
+        'fuel': 'FUEL',
+        'reg_num': 'N_REG_NEW'
+    }
+
+    result = []
+    for k, v in dict_args.items():
+        if row[map_dict[k]] == v:
+            result.append(True)
+        else:
+            result.append(False)
+
+    return all(result)
+
+
+def make_filename():
+    name_file = ''
+    temp_list = []
+
+    for key in args_for_name:
+        value = args_for_name[key]
+        if key == 'o':
+            continue
+        else:
+            temp_list.append(value)
+
+    if flag_reg:
+        temp_list.append('reg_num+')
+
+    name_file = name_file + '-'.join(temp_list) + ".csv"
+    return name_file
+
+
+def open_csv():
+    result = []
     with open('tz_opendata.csv', 'r+') as File:
-        reader = csv.DictReader(File, delimiter=';')
-        for line in reader:
-            if args.brand is None and args.year is None and args.fuel is None and args.color is None:
-                break
-            elif line["BRAND"] == str.upper(args.brand) and line["MAKE_YEAR"] == str.upper(args.year) and \
-                    line["FUEL"] == str.upper(args.fuel) and line["COLOR"] == str.upper(args.color):
-                results.append(line)
-                # print(line)
+        csv_reader = csv.DictReader(File, delimiter=';')
 
-    return results
+        for row in csv_reader:
+            if check_args(row):
+                result.append(row)
+
+    save_csv(result, fieldnames)
 
 
-def write_csv(fieldnames, data):
-    with open('BRAND-{}-YEAR-{}-FUEL-{}-COLOR-{}.csv'.format(args.brand, args.year, args.fuel, args.color), "w+",
-              newline='') \
-            as csv_file:
+def save_csv(result, fieldnames):
+    with open(make_filename(), "w+", newline='') as csv_file:
         writer = csv.DictWriter(csv_file, delimiter=',', fieldnames=fieldnames, extrasaction='ignore')
         writer.writeheader()
 
-        for row in data:
+        for row in result:
             writer.writerow(row)
-    print('~~~DONE~~~')
-
-
-def main():
-    result = read_csv()
-
-    if args.reg_num == 'yes':
-        fieldnames = ['D_REG', 'BRAND', 'MODEL', 'MAKE_YEAR', 'COLOR', 'FUEL', 'N_REG_NEW']
-    else:
-        fieldnames = ['D_REG', 'BRAND', 'MODEL', 'MAKE_YEAR', 'COLOR', 'FUEL']
-
-    temp_list = []
-
-    for values in result[1:]:
-        inner_dict = dict(zip(fieldnames, values))
-        temp_list.append(inner_dict)
-
-    write_csv(fieldnames, result)
+    print('~DONE~')
 
 
 if __name__ == '__main__':
@@ -56,5 +85,16 @@ if __name__ == '__main__':
     parser.add_argument('--reg_num', type=str)
 
     args = parser.parse_args()
-    # print(args)
-    main()
+
+    if args.reg_num == 'yes':
+        flag_reg = True
+        fieldnames = ['D_REG', 'BRAND', 'MODEL', 'MAKE_YEAR', 'COLOR', 'FUEL', 'N_REG_NEW']
+    else:
+        flag_reg = False
+        fieldnames = ['D_REG', 'BRAND', 'MODEL', 'MAKE_YEAR', 'COLOR', 'FUEL']
+
+    args_dict = vars(args)
+
+    args_for_name = check_args_4name()
+
+    open_csv()
