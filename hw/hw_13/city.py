@@ -3,20 +3,16 @@ from pprint import pprint
 
 
 class City:
-    street = random.randint(5, 10)
-
-    def str_list(self):
-        streetlist = list(range(1, self.street))
-        return streetlist
+    def __init__(self):
+        self.street = [Street() for i in range(random.randint(5, 10))]
 
 
 class Street:
     def __init__(self):
-        self.houses = random.randint(5, 20)
+        self.houses = [House() for i in range(random.randint(5, 20))]
 
-    def hous_list(self):
-        houselist = list(range(1, self.houses))
-        return houselist
+        for i in range(random.randint(5, 20)):
+            self.houses = i
 
 
 class House:
@@ -26,10 +22,10 @@ class House:
 
 def full_city():
     finlist = []
-    for street in City().str_list():
-        for house in Street().hous_list():
+    for strt in City().street:
+        for hous in Street().houses:
             people = House().population
-            finlist.append([street, house, people])
+            finlist.append([strt, hous, people])
 
     return finlist
 
