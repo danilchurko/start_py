@@ -4,11 +4,11 @@ import csv
 a = input('Enter your vehicle number: ')
 a.replace('I', 'І', 2)
 
-pattern = r'^\w{2}\d{4}\w{2}'
-matches = re.search(pattern, a)
+patt = r'^\w{2}\d{4}\w{2}'
+match = re.search(patt, a)
 
-if not matches:
-    print('No it\'s not a car number')
+if not match:
+    print('ERROR')
 else:
     print('Pass')
     with open('ua_auto.csv', newline='') as File:
