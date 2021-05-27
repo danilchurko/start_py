@@ -23,7 +23,7 @@ class City:
         finlist = []
         for street in self.streets:
             for house in street.houses:
-                finlist.append([street.idd, house.idd, House(house).people])
+                finlist.append([street.idd, house.idd, house.people])
 
         return finlist
 

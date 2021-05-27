@@ -1,8 +1,10 @@
 import re
 
+phh = input('Enter your number: ')
 
-def telephone():
-    ph = input('Enter your number: ')
+
+def telephone(phph):
+    ph = phph
     matches = re.search(r'0([- ()]?\d){9}', ph)
     if matches:
         print('(+38)', matches.group()[0:3], matches.group()[3:6], '-'
